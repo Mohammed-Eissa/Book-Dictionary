@@ -22,7 +22,7 @@ namespace BookDictionary.Data
         public DbSet<Genre> Genres { get; set; }
         public DbSet<Auther> Authers { get; set; }
         public DbSet<Book_Genre> Book_Genres { get; set; }
-        public DbSet<BookDictionary.Models.Country> Country { get; set; } = default!;
+        public DbSet<Country> Country { get; set; }
 
     }
 }
