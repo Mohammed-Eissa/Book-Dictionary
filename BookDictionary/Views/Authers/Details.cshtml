@@ -1,0 +1,53 @@
+﻿@model BookDictionary.Models.Auther
+
+@{
+	ViewData["Title"] = "Author Details";
+}
+
+<div class="jumbotron">
+	<h1 class="display-4">Author Details</h1>
+	<hr class="my-4">
+	<dl class="row">
+		<dt class="col-sm-3">
+			@Html.DisplayNameFor(model => model.Name)
+		</dt>
+		<dd class="col-sm-9">
+			@Html.DisplayFor(model => model.Name)
+		</dd>
+		<dt class="col-sm-3">
+			@Html.DisplayNameFor(model => model.Country)
+		</dt>
+		<dd class="col-sm-9">
+			<a asp-controller="Countries" asp-action="Details" asp-route-id="@Model.CountryId">
+				@Html.DisplayFor(model => model.Country.Name)
+			</a>
+		</dd>
+		<dt class="col-sm-3">
+			Associated Books
+		</dt>
+		<dd class="col-sm-9">
+			@if (Model.Books.Any())
+			{
+				<ul class="list-unstyled">
+					@foreach (var book in Model.Books)
+					{
+						<li>
+							<a asp-controller="Books" asp-action="Details" asp-route-id="@book.Id">
+								@book.Title
+							</a>
+						</li>
+					}
+				</ul>
+			}
+			else
+			{
+				<span>No books associated.</span>
+			}
+		</dd>
+	</dl>
+	<hr class="my-4">
+	<div>
+		<a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary">Edit</a>
+		<a asp-action="Index" class="btn btn-secondary">Back to List</a>
+	</div>
+</div>

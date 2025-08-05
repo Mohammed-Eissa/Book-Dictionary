@@ -1,0 +1,51 @@
+﻿@model BookDictionary.Models.Genre
+
+@{
+    ViewData["Title"] = "Genre Details";
+}
+
+<div class="jumbotron">
+    <h1 class="display-4">Genre Details</h1>
+    <hr class="my-4">
+    <dl class="row">
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class="col-sm-3">
+            Associated Books
+        </dt>
+        <dd class="col-sm-9">
+            @if (Model.Book_Genres.Any())
+            {
+                <ul class="list-unstyled">
+                    @foreach (var book in Model.Book_Genres)
+                    {
+                        <li>
+                            <a asp-controller="Books" asp-action="Details" asp-route-id="@book.BookId">
+                                @book.Book.Title
+                            </a>
+                        </li>
+                    }
+                </ul>
+            }
+            else
+            {
+                <span>No books associated.</span>
+            }
+        </dd>
+    </dl>
+    <hr class="my-4">
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary">Edit</a>
+        <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+    </div>
+</div>

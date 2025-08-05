@@ -1,0 +1,39 @@
+﻿@model IEnumerable<BookDictionary.Models.Genre>
+
+@{
+	ViewData["Title"] = "Genres List";
+}
+
+<h1>Genres List</h1>
+
+<p>
+	<a asp-action="Create" class="btn btn-primary">Add New Genre</a>
+</p>
+
+@if (Model.Any())
+{
+	<div class="row">
+		@foreach (var item in Model)
+		{
+			<div class="col-lg-4 col-md-6 mb-4">
+				<div class="card h-100 shadow-sm">
+					<div class="card-body d-flex flex-column">
+						<h5 class="card-title">@Html.DisplayFor(modelItem => item.Name)</h5>
+						<p class="card-text">@Html.DisplayFor(modelItem => item.Description)</p>
+						<div class="d-flex justify-content-between mt-3">
+							<a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-info">Details</a>
+							<a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-primary">Edit</a>
+							<a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Delete</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		}
+	</div>
+}
+else
+{
+	<div class="alert alert-info" role="alert">
+		There are no genres to display. Please Add a new one.
+	</div>
+}

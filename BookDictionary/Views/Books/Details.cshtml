@@ -1,0 +1,59 @@
+﻿@model BookDictionary.Models.Book
+
+@{
+    ViewData["Title"] = "Book Details";
+}
+
+<div class="jumbotron">
+    <h1 class="display-4">Book Details</h1>
+    <hr class="my-4">
+    <dl class="row">
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Author)
+        </dt>
+        <dd class="col-sm-9">
+            <a asp-controller="Authers" asp-action="Details" asp-route-id="@Model.AuthorId">
+                @Html.DisplayFor(model => model.Author.Name)
+            </a>
+        </dd>
+        <dt class="col-sm-3">
+            Genres
+        </dt>
+        <dd class="col-sm-9">
+            @if (Model.Book_Genres.Any())
+            {
+                <ul class="list-unstyled">
+                    @foreach (var book in Model.Book_Genres)
+                    {
+                        <li>
+                            <a asp-controller="Genres" asp-action="Details" asp-route-id="@book.GenreId">
+                                @book.Genre.Name
+                            </a>
+                        </li>
+                    }
+                </ul>
+            }
+            else
+            {
+                <span>N/A</span>
+            }
+        </dd>
+    </dl>
+    <hr class="my-4">
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary">Edit</a>
+        <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+    </div>
+</div>

@@ -1,0 +1,62 @@
+﻿@model BookDictionary.Models.Book
+
+@{
+    ViewData["Title"] = "Edit Book";
+}
+
+<h1>Edit Book</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Id" />
+                    <div class="form-group">
+                        <label asp-for="Title" class="control-label"></label>
+                        <input asp-for="Title" class="form-control" />
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Description" class="control-label"></label>
+                        <input asp-for="Description" class="form-control" />
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="AuthorId" class="control-label"></label>
+                        <select asp-for="AuthorId" class="form-control" asp-items="ViewBag.AuthorId"></select>
+                        <span asp-validation-for="AuthorId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Genres</label>
+                        <div class="form-control" style="height: auto;">
+                            @{
+                                var selectedGenreIds = Model.Book_Genres?.Select(bg => bg.GenreId).ToList() ?? new List<int>();
+                            }
+                            @foreach (var genre in ViewBag.Genres as IEnumerable<BookDictionary.Models.Genre>)
+                            {
+                                var isChecked = selectedGenreIds.Contains(genre.Id) ? "checked" : "";
+                                <div class="form-check">
+                                    <input type="checkbox" name="selectedGenres" value="@genre.Id" class="form-check-input" @isChecked />
+                                    <label class="form-check-label">@genre.Name</label>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    <div class="form-group mt-3">
+                        <input type="submit" value="Save" class="btn btn-primary" />
+                        <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
