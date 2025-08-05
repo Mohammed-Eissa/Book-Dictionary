@@ -79,20 +79,6 @@ dotnet run
 
 ---
 
-## 👨‍💻 Author
-
-<div align="center">
-
-**Mohammed Eissa**
-
-[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Mohammed-Eissa)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](#)
-[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](#)
-
-</div>
-
----
-
 ## 🙏 Acknowledgments
 
 - 🎓 **ITI (Information Technology Institute)** - For providing an excellent summer training program
@@ -102,14 +88,14 @@ dotnet run
 
 ---
 
-## 📞 Contact
+## 👨‍💻 Author
 
 <div align="center">
 
-**Got questions? Suggestions? Let's connect!**
+**Mohammed Eissa**
 
-[![Email](https://img.shields.io/badge/📧_Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mohamedeissa615@gmail.com)
-[![GitHub Issues](https://img.shields.io/badge/🐛_Issues-181717?style=for-the-badge&logo=github&logoColor=white)](github.com/Mohammed-Eissa/Book-Dictionary/issues)
-[![LinkedIn](https://img.shields.io/badge/💼_LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](linkedin.com/in/mohamed-eissaa)
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Mohammed-Eissa)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](linkedin.com/in/mohamed-eissaa)
+[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mohamedeissa615@gmail.com)
 
 </div>
